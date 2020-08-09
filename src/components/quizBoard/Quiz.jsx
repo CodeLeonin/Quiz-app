@@ -9,8 +9,8 @@ import UserScore from './UserScore';
 
 const useStyles = makeStyles ({
     questionCard: {
-        marginTop: '50px',
-        minWidth: '60%',
+        marginTop: '20px',
+        minWidth: '50%',
         minHeight: '50%',
         display: 'flex',
     },
