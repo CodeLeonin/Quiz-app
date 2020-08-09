@@ -6,8 +6,8 @@ import { makeStyles } from '@material-ui/styles'
 const useStyles = makeStyles({
    userScore: {
         backgroundColor: 'white',
-        minWidth: "20%",
-        minHeight: "20%",
+        minWidth: "40%",
+        maxHeight: "10%",
         justifyContent: 'flex-start',
         alignItems: 'center',
         flexDirection: 'column',
@@ -33,6 +33,7 @@ export default function QuizDrawer() {
     return(
         <Grid
             className={classes.userScore}
+            xs={3}
             >
             <List>
                 <ListItem className={classes.playername}>
