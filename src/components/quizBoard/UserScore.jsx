@@ -1,20 +1,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Divider, List, ListItem } from '@material-ui/core';
+import { Divider, List, ListItem, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles'
 
 const useStyles = makeStyles({
    userScore: {
         backgroundColor: 'white',
-        width: 200,
-        height: 200,
+        minWidth: "20%",
+        minHeight: "20%",
         justifyContent: 'flex-start',
         alignItems: 'center',
         flexDirection: 'column',
         alignSelf: 'flex-end',
         position: 'absolute',
-        top: '100px',
-        right: '50px',
+        top: '70px',
+        right: '40px',
    },
    playername: {
        textAlign: 'center',
@@ -31,7 +31,7 @@ export default function QuizDrawer() {
     const questions = useSelector( state => state.questions)
 
     return(
-        <div
+        <Grid
             className={classes.userScore}
             >
             <List>
@@ -50,6 +50,6 @@ export default function QuizDrawer() {
                    From { questions.length} questions { currentQuestion } answered
                 </ListItem>
             </List>
-        </div>
+        </Grid>
     )
 } 

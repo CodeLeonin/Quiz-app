@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from '@material-ui/styles';
 import { Typography, Button, Grid, Card, CardContent } from '@material-ui/core';
 import { nextQuestion, previousQuestion } from './quizBoardSlice';
+import { resetQuestions } from '../question/questionHandlerSlice';
 import UserScore from './UserScore';
 
 const useStyles = makeStyles ({
     questionCard: {
         marginTop: '50px',
-        minWidth: '500px',
-        minHeight: '300px',
+        minWidth: '60%',
+        minHeight: '50%',
         display: 'flex',
     },
     cardContent: {
@@ -58,19 +59,33 @@ export default function Quiz() {
                     { <Question question = {questions[currentQuestion]} />}
                 </Grid>
                 :
-                <Card variant="outlined" className={classes.questionCard}>
-                    <CardContent className={classes.cardContent}>
-                        <Typography variant="h4">
-                            You have finished the quiz
-                        </Typography>
-                        <Typography variant="h6">
-                            Your score is
-                        </Typography>
-                        <Typography variant="p" color="secondary">
-                            { questions.length} / { score }
-                        </Typography>
-                    </CardContent>
-                </Card>
+                <Grid 
+                container
+                direction="column"
+                justify="space-evenly"
+                alignItems="center" 
+                >
+                    <Card variant="outlined" className={classes.questionCard}>
+                        <CardContent className={classes.cardContent}>
+                            <Typography variant="h4">
+                                You have finished the quiz
+                            </Typography>
+                            <Typography variant="h6">
+                                Your score is
+                            </Typography>
+                            <Typography variant="p" color="secondary">
+                                { questions.length} / { score }
+                            </Typography>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                onClick={() => resetQuestions()}
+                            >
+                                End Quiz
+                            </Button>
+                        </CardContent>
+                    </Card>
+                </Grid>
             }
             <Grid 
                 className={ classes.questionNavigation }

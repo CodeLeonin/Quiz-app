@@ -11,14 +11,16 @@ const useStyles = makeStyles(() => ({
         overflow: 'auto',
         backgroundColor: "grey",
         marginTop: '20px',
-        minWidth: '1302px',
-        maxWidth: '1302px',
+        minWidth: '100%',
+        maxWidth: '100%',
         minHeight: '330px',
         maxHeight: '330px',
     },
     card: {
-        minWidth: '428px',
-        minHeight: '250px',
+        minWidth: '33.33%',
+        maxWidth: '20%',
+        minHeight: '100%',
+        maxHeight: '20%',
         textAlign: 'center'
     },
     listItem:{
@@ -34,7 +36,7 @@ export default function QuestionList() {
     const classes = useStyles();
 
     return(
-        <Grid container className={classes.root}>  
+        <Grid container className={classes.root} xs={12}>  
             {questions.map((question) => 
                 <Card variant="outlined" className={classes.card}>
                     <CardContent>

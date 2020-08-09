@@ -16,8 +16,8 @@ import {
 
 const useStyle = makeStyles({
     questionCard: {
-        minWidth: '500px',
-        minHeight: '300px',
+        minWidth: '50%',
+        minHeight: '50%',
         marginTop: '50px',
         display: 'flex',
         justifyContent: 'center',
@@ -52,7 +52,7 @@ export default function Questions({question}) {
     }
 
     return(
-       <Grid container justify="center" >
+       <Grid container justify="center" xs={12} >
            <Card variant="outlined" className={classes.questionCard}>
                <CardContent>
                     <Grid

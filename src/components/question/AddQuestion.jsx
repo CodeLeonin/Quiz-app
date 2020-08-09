@@ -27,7 +27,7 @@ const useStyles = makeStyles({
         alignContent: 'center',
     },
     questionField: {
-        width: '500px',
+        width: '100%',
         margin: '10px 10px',
     }
 })
