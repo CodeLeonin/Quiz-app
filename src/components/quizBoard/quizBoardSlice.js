@@ -4,8 +4,7 @@ const initialState = {
     playerName: "",
     currentQuestion: 0,
     score: 0,
-    isAnswered: false,
-    answerAndQuestion: [],
+    startMode: false,
 }
 
 const quizBoardSlice = createSlice({
@@ -24,13 +23,17 @@ const quizBoardSlice = createSlice({
         increaseScore(state) {
             state.score++
         },
+        setStartMode(state, action) {
+            state.startMode = action.payload
+        }
     }
 })
 
 export const {  startQuiz, 
                 nextQuestion, 
                 previousQuestion, 
-                increaseScore, 
+                increaseScore,
+                setStartMode,
             } = quizBoardSlice.actions
 
 export default quizBoardSlice.reducer

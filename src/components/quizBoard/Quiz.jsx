@@ -3,7 +3,7 @@ import Question from "./Question";
 import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from '@material-ui/styles';
 import { Typography, Button, Grid, Card, CardContent } from '@material-ui/core';
-import { nextQuestion, previousQuestion } from './quizBoardSlice';
+import { nextQuestion, previousQuestion, setStartMode } from './quizBoardSlice';
 import { resetQuestions } from '../question/questionHandlerSlice';
 import UserScore from './UserScore';
 
@@ -45,6 +45,10 @@ export default function Quiz() {
             dispatch(previousQuestion())
         }
     }
+    const endQuiz = () => {
+        resetQuestions();
+        dispatch(setStartMode(false));
+    }
 
     return(
         <Grid 
@@ -52,7 +56,6 @@ export default function Quiz() {
             direction="column"
             justify="space-evenly"
             alignItems="center" 
-            xs={12}
         >
             <UserScore />
             {currentQuestion < questions.length ? 
@@ -80,7 +83,7 @@ export default function Quiz() {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                onClick={() => resetQuestions()}
+                                onClick={() => endQuiz()}
                             >
                                 End Quiz
                             </Button>

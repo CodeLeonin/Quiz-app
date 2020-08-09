@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from 'react';
 import Quiz from "./Quiz";
 import { useDispatch, useSelector } from "react-redux";
-import { startQuiz } from './quizBoardSlice';
+import { startQuiz, setStartMode } from './quizBoardSlice';
 import QuestionHandlerButton from './QuestionHandlerButton'
 import { 
         Typography, 
@@ -53,11 +53,11 @@ export default function QuizBoard() {
     const dispatch = useDispatch();
     const classes = useStyles();
     const [errMessage, setErrMessage] = useState("");
-    const [startMode, setStartMode] = useState(false);
     const [playerName, setPlayerName] = useState('');
     const [openModal, setopenModal] = useState(false);
     const questions = useSelector( state => state.questions );
-
+    const { startMode } = useSelector( state => state.QuizBoard)
+    console.log(startMode)
     const openModalWindow = () => {
         if( questions.length === 0) {
             setErrMessage("There are no question in the quiz!");
@@ -106,7 +106,7 @@ export default function QuizBoard() {
         }
         setopenModal(false);
         dispatch(startQuiz(playerName))
-        setStartMode(true);
+        dispatch(setStartMode(true));
     }
     
     return(
