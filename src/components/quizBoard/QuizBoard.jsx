@@ -148,7 +148,7 @@ export default function QuizBoard() {
                         container
                         justify="space-evenly"
                         className={classes.buttons}
-                        xs={9}
+                        xs={6}
                         >
                         <Button 
                             variant="contained" 

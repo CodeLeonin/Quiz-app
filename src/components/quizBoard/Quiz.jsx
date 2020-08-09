@@ -52,6 +52,7 @@ export default function Quiz() {
             direction="column"
             justify="space-evenly"
             alignItems="center" 
+            xs={12}
         >
             <UserScore />
             {currentQuestion < questions.length ? 
@@ -60,10 +61,10 @@ export default function Quiz() {
                 </Grid>
                 :
                 <Grid 
-                container
-                direction="column"
-                justify="space-evenly"
-                alignItems="center" 
+                    container
+                    direction="column"
+                    justify="space-evenly"
+                    alignItems="center" 
                 >
                     <Card variant="outlined" className={classes.questionCard}>
                         <CardContent className={classes.cardContent}>
