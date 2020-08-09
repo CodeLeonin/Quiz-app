@@ -37,7 +37,7 @@ export default function QuestionList() {
 
     return(
         <Grid container className={classes.root} xs={12}>  
-            {questions.map((question) => 
+            {questions && questions.map((question) => 
                 <Card variant="outlined" className={classes.card}>
                     <CardContent>
                         <Typography variant="h5">

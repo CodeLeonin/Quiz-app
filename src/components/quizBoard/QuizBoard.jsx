@@ -57,7 +57,7 @@ export default function QuizBoard() {
     const [openModal, setopenModal] = useState(false);
     const questions = useSelector( state => state.questions );
     const { startMode } = useSelector( state => state.QuizBoard)
-    console.log(startMode)
+    
     const openModalWindow = () => {
         if( questions.length === 0) {
             setErrMessage("There are no question in the quiz!");

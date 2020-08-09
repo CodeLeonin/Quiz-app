@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/styles';
 import { 
         Grid, 
@@ -42,7 +42,6 @@ export default function AddQuestion() {
     let [FourthOption, setFourthOption] = useState('');
     let [Correct, setCorrect] = useState(undefined);
     let [errMsg, setErrMsg] = useState('');
-    const questions = useSelector(state => state.questions);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -63,7 +62,7 @@ export default function AddQuestion() {
         const newQuestion = {title: Question, 
                             options: [FirstOption, SecondOption, ThirdOption, FourthOption],
                             correct: Correct,
-                            questionId: Math.ceil(Math.random() * questions.length * 111) 
+                            questionId: Math.ceil(Math.random() * 111) 
                         };
         dispatch(createQuestion(newQuestion));
         setQuestion('');
@@ -170,13 +169,15 @@ export default function AddQuestion() {
                         </div>
                     </RadioGroup>
                 </FormControl>
-                <Button 
-                    color="primary" 
-                    variant="contained"
-                    onClick={(e) => handleSubmit(e)}
-                >
-                    Save
-                </Button>
+                <Grid container justify="center">
+                    <Button 
+                        color="primary" 
+                        variant="contained"
+                        onClick={(e) => handleSubmit(e)}
+                    >
+                        Save
+                    </Button>
+                </Grid>
             </Grid>
         </Grid>
     )
