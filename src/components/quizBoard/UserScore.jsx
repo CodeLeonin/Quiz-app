@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     top: '70px',
     right: '20px',
    },
-   playername: {
+   item: {
     textAlign: "center",
     fontSize: "16px"
   }
@@ -28,16 +28,18 @@ export default function QuizDrawer() {
   const { score } = useSelector((state) => state.QuizBoard);
   const { currentQuestion } = useSelector((state) => state.QuizBoard);
   const questions = useSelector((state) => state.questions);
+  console.log(playerName)
 
   return (
     <Grid className={classes.userScore} xs={3}>
       <List>
-        <ListItem className={classes.playername}>{playerName}</ListItem>
+        <ListItem className={classes.item} >{playerName}</ListItem>
+          <Divider />
+        <ListItem className={classes.item}>Score: {score}</ListItem>
         <Divider />
-        <ListItem className={classes.playername}>Score:</ListItem>
-        <ListItem className={classes.playername}>{score}</ListItem>
-        <Divider />
-        <ListItem>
+        <ListItem 
+        className={classes.item} 
+        >
           From {questions.length} questions {currentQuestion} answered
         </ListItem>
       </List>

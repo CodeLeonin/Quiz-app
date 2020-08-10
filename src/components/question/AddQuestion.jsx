@@ -11,6 +11,7 @@ import {
         Typography,
         FormControl } from '@material-ui/core'
 import { createQuestion } from './questionHandlerSlice';
+import BackButton from './BackButton';
 
 const useStyles = makeStyles({
     root: {
@@ -169,7 +170,8 @@ export default function AddQuestion() {
                         </div>
                     </RadioGroup>
                 </FormControl>
-                <Grid container justify="center">
+                <Grid container justify="space-around">
+                    <BackButton />
                     <Button 
                         color="primary" 
                         variant="contained"
