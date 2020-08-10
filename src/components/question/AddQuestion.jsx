@@ -110,7 +110,7 @@ export default function AddQuestion() {
                         onChange={(e) => setQuestion(e.target.value)} 
                         required />
                 </Grid>
-                <FormControl component="fieldset" error={errMsg}>
+                <FormControl component="fieldset">
                     <RadioGroup aria-label="correct" value={Correct}>
                         <div>
                             <FormControlLabel 

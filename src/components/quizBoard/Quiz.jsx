@@ -13,6 +13,8 @@ const useStyles = makeStyles ({
         minWidth: '50%',
         minHeight: '350px',
         display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     cardContent: {
         justifyContent: 'center',
@@ -24,6 +26,9 @@ const useStyles = makeStyles ({
         padding: '50px',
         borderRadius: '13px',
         backgroundColor: 'white',
+    },
+    finish: {
+        alignText: 'center',
     }
 })
 
@@ -71,13 +76,13 @@ export default function Quiz() {
                 >
                     <Card variant="outlined" className={classes.questionCard}>
                         <CardContent className={classes.cardContent}>
-                            <Typography variant="h4">
+                            <Typography variant="h4" className={classes.finish}>
                                 You have finished the quiz
                             </Typography>
-                            <Typography variant="h6">
+                            <Typography variant="h6" className={classes.finish}>
                                 Your score is
                             </Typography>
-                            <Typography variant="p" color="secondary">
+                            <Typography variant="h6" color="secondary" className={classes.finish}>
                                 { questions.length} / { score }
                             </Typography>
                             <Button
