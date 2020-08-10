@@ -42,6 +42,9 @@ const useStyles = makeStyles((theme) => ({
         minWidth: "100px",
         backgroundColor: 'lightgrey',
     },
+    intro: {
+        textAlign: "justify"
+    }
   }));
 
 export default function QuizBoard() {
@@ -114,7 +117,6 @@ export default function QuizBoard() {
                     direction="column"
                     justify="center"
                     alignItems="center"
-                    
                 >
                     <Grid
                         container
@@ -127,7 +129,7 @@ export default function QuizBoard() {
                         >
                             Welcome to my Quiz App
                         </Typography>
-                        <Typography variant="h6" >
+                        <Typography variant="h6" className={classes.introText}>
                             This app was created with react and redux.
                             You can start quiz by pressing start
                             quiz button. If the quiz is empty you cant start it. 

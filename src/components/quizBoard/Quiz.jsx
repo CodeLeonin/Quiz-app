@@ -13,7 +13,7 @@ const useStyles = makeStyles ({
         minWidth: '50%',
         minHeight: '350px',
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
     },
     cardContent: {
@@ -28,7 +28,11 @@ const useStyles = makeStyles ({
         backgroundColor: 'white',
     },
     finish: {
-        alignText: 'center',
+        textAlign: 'center',
+    },
+    finishButton:{
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 })
 
@@ -68,33 +72,27 @@ export default function Quiz() {
                     { <Question question = {questions[currentQuestion]} />}
                 </Grid>
                 :
-                <Grid 
-                    container
-                    direction="column"
-                    justify="space-evenly"
-                    alignItems="center" 
-                >
-                    <Card variant="outlined" className={classes.questionCard}>
-                        <CardContent className={classes.cardContent}>
-                            <Typography variant="h4" className={classes.finish}>
-                                You have finished the quiz
-                            </Typography>
-                            <Typography variant="h6" className={classes.finish}>
-                                Your score is
-                            </Typography>
-                            <Typography variant="h6" color="secondary" className={classes.finish}>
-                                { questions.length} / { score }
-                            </Typography>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                onClick={() => endQuiz()}
-                            >
-                                End Quiz
-                            </Button>
-                        </CardContent>
-                    </Card>
-                </Grid>
+                <Card variant="outlined" className={classes.questionCard}>
+                    <CardContent className={classes.cardContent}>
+                        <Typography variant="h4" className={classes.finish}>
+                            You have finished the quiz
+                        </Typography>
+                        <Typography variant="h6" className={classes.finish}>
+                            Your score is
+                        </Typography>
+                        <Typography variant="h6" color="secondary" className={classes.finish}>
+                            { questions.length} / { score }
+                        </Typography>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={() => endQuiz()}
+                            className={classes.finishButton}
+                        >
+                            End Quiz
+                        </Button>
+                    </CardContent>
+                </Card>
             }
             <Grid 
                 className={ classes.questionNavigation }
