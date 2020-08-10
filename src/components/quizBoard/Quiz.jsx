@@ -11,7 +11,7 @@ const useStyles = makeStyles ({
     questionCard: {
         marginTop: '20px',
         minWidth: '50%',
-        minHeight: '50%',
+        minHeight: '350px',
         display: 'flex',
     },
     cardContent: {

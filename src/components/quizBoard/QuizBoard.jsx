@@ -12,7 +12,6 @@ import {
         Modal, 
         Backdrop, 
         Fade, 
-        AppBar, 
         } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
@@ -26,12 +25,8 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "white",
       padding: "25px 50px 75px 100px",
     },
-    header: {
-        marginBottom: '100px',
-        alignItems: 'center'
-    },
-    headerText: {
-        padding: '10px 10px',
+    introText: {
+        marginTop: "100px",
     },
     modalContent: {
         justifyContent: "center",
@@ -111,11 +106,6 @@ export default function QuizBoard() {
     
     return(
         <Grid container>
-            <AppBar className={classes.header} position="static">
-                <Typography variant='h4' alignText="center" className={classes.headerText}>
-                        Quiz-App
-                </Typography>
-            </AppBar>
             {startMode ? 
                 <Quiz />
             :
@@ -130,6 +120,7 @@ export default function QuizBoard() {
                         container
                         justify="center"
                         xs={9}
+                        className={classes.introText}
                     >
                         <Typography 
                             variant="h4" 
