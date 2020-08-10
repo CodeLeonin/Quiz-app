@@ -130,10 +130,9 @@ export default function QuizBoard() {
                             Welcome to my Quiz App
                         </Typography>
                         <Typography variant="h6" className={classes.introText}>
-                            This app was created with react and redux.
-                            You can start quiz by pressing start
-                            quiz button. If the quiz is empty you cant start it. 
-                            You need to give a username to start quiz.
+                            I created this app with react and redux. 
+                            You can start quiz after you give a username.
+                            Questions also required to start.
                         </Typography>
                     </Grid>
                    

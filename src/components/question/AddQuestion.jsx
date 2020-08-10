@@ -9,6 +9,7 @@ import {
         Radio, 
         Button, 
         Typography,
+        FormHelperText,
         FormControl } from '@material-ui/core'
 import { createQuestion } from './questionHandlerSlice';
 import BackButton from './BackButton';
@@ -43,21 +44,27 @@ export default function AddQuestion() {
     let [FourthOption, setFourthOption] = useState('');
     let [Correct, setCorrect] = useState(undefined);
     let [errMsg, setErrMsg] = useState('');
+    let [correctIsMissing, setCorrectIsMissing] = useState(false);
+    let [correctIsMissingHelper, setCorrectIsMissingHelper] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        if (!Question || !FirstOption || !SecondOption || !ThirdOption || !FourthOption ||
-            !Correct
+        if (!Question || !FirstOption || !SecondOption || !ThirdOption || !FourthOption
             ) {
-                setErrMsg("Please fill this element")
+                setErrMsg("Please fill all input fields");
                 return;
             }
+        if(!Correct){
+                setCorrectIsMissing(true);
+                setCorrectIsMissingHelper("Please choose an option");
+                return
+        }
         if (FirstOption === SecondOption || FirstOption === SecondOption || 
             FirstOption === ThirdOption || FirstOption === FourthOption || 
             SecondOption === ThirdOption || SecondOption === FourthOption ||
             ThirdOption === FourthOption) {
-                setErrMsg("Options cant be the same")
+                setErrMsg("Options cant be same")
                 return;
             }
         const newQuestion = {title: Question, 
@@ -75,8 +82,8 @@ export default function AddQuestion() {
     }
 
     const handleSetCorrect = ( correctValue ) => {
-        if( correctValue === '' ) {
-            setErrMsg('Fill empty text field');
+        if( correctValue === '' || undefined ) {
+            setErrMsg('Please fill Input fields!');
             return;
         } else {
             setCorrect(correctValue);
@@ -110,7 +117,7 @@ export default function AddQuestion() {
                         onChange={(e) => setQuestion(e.target.value)} 
                         required />
                 </Grid>
-                <FormControl component="fieldset">
+                <FormControl component="fieldset" error={correctIsMissing}>
                     <RadioGroup aria-label="correct" value={Correct}>
                         <div>
                             <FormControlLabel 
@@ -169,6 +176,7 @@ export default function AddQuestion() {
                                 required/>
                         </div>
                     </RadioGroup>
+                    <FormHelperText>{correctIsMissingHelper}</FormHelperText>
                 </FormControl>
                 <Grid container justify="space-around">
                     <BackButton />

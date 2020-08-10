@@ -81,7 +81,7 @@ export default function Quiz() {
                             Your score is
                         </Typography>
                         <Typography variant="h6" color="secondary" className={classes.finish}>
-                            { questions.length} / { score }
+                           { score } / { questions.length}
                         </Typography>
                         <Button
                             variant="contained"
